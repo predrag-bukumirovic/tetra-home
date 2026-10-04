@@ -1,0 +1,130 @@
+@use "abstracts" as *;
+
+// Zajednički stilovi svih polja forme
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+// Vidljiva labela polja i legenda grupe izbora
+.label {
+  @include label;
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+// Podvučena kontrola (input, select, textarea)
+.control {
+  @include text;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  border-radius: 0;
+  color: var(--color-ink);
+  transition: border-color $duration;
+
+  &::placeholder {
+    color: var(--color-faint);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-bottom-color: var(--color-faint);
+  }
+
+  &:focus,
+  &:focus-visible {
+    border-bottom-color: var(--color-ink);
+    outline: none;
+  }
+
+  &[aria-invalid="true"] {
+    border-bottom-color: var(--color-error);
+  }
+}
+
+.textarea {
+  min-height: 8.5rem;
+  resize: vertical;
+}
+
+.select {
+  padding-right: 2rem;
+  appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%239c978f' stroke-width='1.2'%3E%3Cpath d='m2.5 4.5 3.5 3.5 3.5-3.5'/%3E%3C/svg%3E")
+    no-repeat right 0.5rem center / 0.75rem;
+  cursor: pointer;
+
+  // Dok je izabrana prazna opcija, izgleda kao placeholder
+  &:has(option[value=""]:checked) {
+    color: var(--color-faint);
+  }
+
+  option {
+    color: var(--color-ink);
+  }
+}
+
+.phone {
+  display: grid;
+  grid-template-columns: 5.75rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.error {
+  @include text(sm);
+  color: var(--color-error);
+}
+
+// Grupa izbora (radio) sa kvadratnim oznakama
+
+.group {
+  display: block;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem 2rem;
+  padding: 1.25rem 0 0 1rem;
+}
+
+.option {
+  @include text(lg);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+// Pravi radio ostaje fokusabilan i dostupan, ali se ne vidi
+.radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.box {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid var(--color-ink);
+  transition: background-color 0.2s;
+
+  .radio:checked + & {
+    background: var(--color-ink);
+  }
+
+  .radio:focus-visible + & {
+    outline: 1px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}

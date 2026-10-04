@@ -1,0 +1,53 @@
+// ==========================================================================
+// Sass tokeni: breakpointi, tipografska skala, animacije.
+// Boje i razmaci su CSS custom properties — vidi base/_root.scss.
+// ==========================================================================
+
+// Breakpointi (mobile-first)
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1600px,
+);
+
+// Fluidna skala naslova — vrednosti prate dizajn na širini ekrana od ~1500px
+$type-scale: (
+  display: (
+    size: clamp(2.25rem, 1rem + 5.6vw, 9rem),
+    leading: 0.95,
+    tracking: -0.04em,
+  ),
+  xl: (
+    size: clamp(2.25rem, 0.9rem + 3.4vw, 6rem),
+    leading: 1,
+    tracking: -0.035em,
+  ),
+  lg: (
+    size: clamp(1.5rem, 0.9rem + 1.6vw, 3.25rem),
+    leading: 1.08,
+    tracking: -0.025em,
+  ),
+  md: (
+    size: clamp(1.375rem, 0.875rem + 1.25vw, 2.75rem),
+    leading: 1.08,
+    tracking: -0.02em,
+  ),
+  sm: (
+    size: clamp(1.125rem, 0.875rem + 0.6vw, 1.75rem),
+    leading: 1.15,
+    tracking: -0.015em,
+  ),
+);
+
+// Animacije
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$duration: 0.45s;
+
+// Slojevi (z-index)
+$z-layers: (
+  menu: 40,
+  header: 50,
+  skip-link: 100,
+);

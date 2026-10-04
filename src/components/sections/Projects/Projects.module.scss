@@ -1,0 +1,30 @@
+@use "abstracts" as *;
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(3rem, 5vw, 4.5rem) var(--grid-gap);
+  margin-top: clamp(3.5rem, 7vw, 7rem);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.item {
+  @include reveal;
+
+  // Srednja kolona je spuštena — stepenast, „magazinski" raspored
+  @include mq(lg) {
+    &:nth-child(3n + 2) {
+      margin-top: clamp(4rem, 8vw, 8rem);
+    }
+  }
+}

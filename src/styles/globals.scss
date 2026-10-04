@@ -1,0 +1,6 @@
+// Globalni stilovi — učitavaju se jednom, u app/layout.tsx.
+// Stilovi komponenti su u njihovim *.module.scss fajlovima.
+@use "base/root";
+@use "base/reset";
+@use "base/base";
+@use "base/utilities";

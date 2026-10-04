@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "abstracts" as *;
+
+// Sakriva element vizuelno, ali ga ostavlja čitačima ekrana
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Link „Preskoči na sadržaj" — vidljiv samo pri navigaciji tastaturom
+.skip-link {
+  @include label;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: map.get($z-layers, skip-link);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-ink);
+  color: var(--color-inverse);
+  translate: 0 -200%;
+  transition: translate 0.2s;
+
+  &:focus-visible {
+    translate: 0 0;
+  }
+}

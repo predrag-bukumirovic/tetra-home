@@ -1,0 +1,73 @@
+@use "abstracts" as *;
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.body {
+  @include grid;
+  row-gap: 2.5rem;
+  margin-top: clamp(2rem, 2.5vw, 2.5rem);
+
+  @include mq(lg) {
+    align-items: end;
+  }
+}
+
+.link {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  justify-self: start;
+
+  @include mq(lg) {
+    grid-row: 1;
+    grid-column: 1 / span 3;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-column: 1 / -1;
+  border: 1px solid var(--color-line);
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include mq(lg) {
+    grid-column: 5 / -1;
+  }
+}
+
+.card {
+  @include reveal;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(16rem, 21vw, 21rem);
+  padding: clamp(1.5rem, 2.2vw, 2rem);
+
+  & + & {
+    border-top: 1px solid var(--color-line);
+
+    @include mq(md) {
+      border-top: 0;
+      border-left: 1px solid var(--color-line);
+    }
+  }
+}
+
+.icon {
+  color: var(--color-faint);
+}
+
+.cardTitle {
+  @include heading(sm);
+  margin-top: auto;
+  padding-top: 2.5rem;
+}
+
+.cardText {
+  @include text;
+  max-width: 17rem;
+  margin-top: 1.25rem;
+}

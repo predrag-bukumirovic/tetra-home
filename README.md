@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tetra Home — sajt
 
-## Getting Started
+Početna strana za Tetra Home, nameštaj po meri. Next.js 16 (App Router), React 19, TypeScript i SCSS moduli.
 
-First, run the development server:
+## Pokretanje
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # razvoj — http://localhost:3000
+npm run build   # produkcijski build
+npm run start   # pokreće produkcijski build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/                 # layout, početna strana, metapodaci, favicon i OG slika
+├── assets/images/       # fotografije (sa Instagrama @tetra_home)
+├── components/
+│   ├── layout/          # Header (+ mobilni meni) i Footer
+│   ├── sections/        # sekcije početne strane: Hero, Benefits, Process, …
+│   └── ui/              # gradivni blokovi: Heading, ArrowLink, Button, ImageBanner, form/, …
+├── content/             # sav tekst sajta: site.ts, home.ts, footer.ts
+├── hooks/               # useScrolled, useBodyScrollLock
+├── lib/                 # fontovi, server akcija za upit, pomoćne funkcije
+├── styles/
+│   ├── abstracts/       # tokeni i mixini (ne generišu CSS)
+│   ├── base/            # :root promenljive, reset, globalni stilovi
+│   └── globals.scss
+└── types/               # TypeScript tipovi sadržaja
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Izmena sadržaja
 
-## Learn More
+Komponente ne sadrže tekst — sve stiže iz `src/content`:
 
-To learn more about Next.js, take a look at the following resources:
+- `site.ts` — naziv, navigacija, Instagram i kontakt podaci
+- `home.ts` — tekstovi, slike i linkovi svih sekcija početne strane
+- `footer.ts` — footer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stilovi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Svaka komponenta ima svoj `*.module.scss`.
+- Na vrhu modula: `@use "abstracts" as *;` — daje mixine (`mq`, `heading`, `label`, `caption`, `text`, `grid`, `reveal`, …) i Sass tokene. Putanja radi zahvaljujući `sassOptions.loadPaths` u `next.config.ts`.
+- Boje i razmaci su CSS promenljive u `styles/base/_root.scss`.
 
-## Deploy on Vercel
+## Pre objavljivanja
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Upisati telefon, email i lokaciju u `src/content/site.ts` — prikazuju se automatski kada se popune.
+- [ ] Utisci klijenata su **primer** — zameniti stvarnim (`testimonialsContent` u `src/content/home.ts`).
+- [ ] Forma za upit trenutno samo beleži upit u log servera — povezati slanje emaila u `src/lib/inquiry/actions.ts`.
+- [ ] Proveriti okvirna trajanja faza procesa (`processContent`).
+- [ ] Postaviti `NEXT_PUBLIC_SITE_URL` (npr. `https://tetrahome.rs`) zbog linkova u Open Graph pregledu.

@@ -1,0 +1,102 @@
+@use "abstracts" as *;
+
+.section {
+  padding-top: var(--section-space);
+  padding-bottom: clamp(4rem, 9vw, 9rem);
+}
+
+.head {
+  @include grid;
+  row-gap: 1.5rem;
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.eyebrow {
+  @include caption;
+  grid-column: 1 / -1;
+
+  @include mq(lg) {
+    grid-column: 1 / span 3;
+    padding-top: 0.6rem;
+  }
+}
+
+.statement {
+  @include heading(lg);
+  @include reveal;
+  grid-column: 1 / -1;
+
+  @include mq(lg) {
+    grid-column: 5 / span 7;
+  }
+}
+
+.body {
+  @include grid;
+}
+
+.steps {
+  grid-column: 1 / -1;
+
+  @include mq(lg) {
+    grid-column: 5 / -1;
+  }
+}
+
+// Mobilni: broj + naslov, pa oznaka i trajanje, pa opis.
+// Desktop: sve u jednom redu, kao u dizajnu.
+.step {
+  @include reveal;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    "number title title"
+    ". label duration"
+    ". text text";
+  gap: 0.75rem var(--grid-gap);
+  padding-block: clamp(1.75rem, 2.5vw, 2.25rem);
+  border-bottom: 1px solid var(--color-line);
+
+  @include mq(xl) {
+    grid-template-columns: 2.75rem minmax(0, 1.25fr) 6.5rem minmax(0, 1.55fr) 6rem;
+    grid-template-areas: "number title label text duration";
+    align-items: start;
+  }
+}
+
+.number {
+  @include label;
+  grid-area: number;
+  padding-top: 0.3em;
+}
+
+.title {
+  @include heading(md);
+  grid-area: title;
+}
+
+.label {
+  @include caption;
+  grid-area: label;
+
+  @include mq(xl) {
+    padding-top: 0.5rem;
+  }
+}
+
+.text {
+  @include text;
+  grid-area: text;
+  max-width: 26rem;
+}
+
+.duration {
+  @include caption;
+  grid-area: duration;
+  text-align: right;
+
+  @include mq(xl) {
+    padding-top: 0.5rem;
+  }
+}

@@ -1,0 +1,33 @@
+@use "abstracts" as *;
+
+.button {
+  @include label;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.875rem 2rem;
+  background: var(--color-ink);
+  color: var(--color-inverse);
+  transition:
+    background-color $duration,
+    opacity $duration;
+
+  @include hover {
+    background: color-mix(in srgb, var(--color-ink) 85%, var(--color-inverse));
+  }
+
+  &:focus-visible {
+    outline-color: var(--color-ink);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: 0.6;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+:root {
+  // Paleta — topla, prigušena, inspirisana drvetom
+  --color-bg: #fbfaf8;
+  --color-ink: #24211d;
+  --color-muted: #9c978f;
+  --color-faint: #c9c4bb;
+  --color-line: #e3dfd9;
+  --color-inverse: #fdfcfa;
+  --color-shade: #2b251f;
+  --color-error: #a8432a;
+
+  // Raspored
+  --container-max: 110rem;
+  --gutter: clamp(1.25rem, 2.65vw, 3rem);
+  --grid-gap: clamp(1rem, 1.6vw, 1.5rem);
+  --section-space: clamp(5.5rem, 12vw, 12rem);
+  --header-height: clamp(4rem, 5.5vw, 5.25rem);
+}

@@ -1,0 +1,86 @@
+@use "abstracts" as *;
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    translate: 1rem 0;
+  }
+}
+
+.slider {
+  position: relative;
+  padding-top: 5rem; // na telefonu citat počinje ispod velikog navodnika
+
+  @include mq(lg) {
+    padding-top: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+// Veliki dekorativni navodnik
+.mark {
+  position: absolute;
+  top: -0.12em;
+  right: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(8rem, 13vw, 13rem);
+  line-height: 1;
+  color: var(--color-line);
+  pointer-events: none;
+  user-select: none;
+}
+
+.slide {
+  position: relative;
+
+  @include motion {
+    animation: slide-in 0.7s $ease-out backwards;
+  }
+}
+
+.quote {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 0.75rem + 1.1vw, 2.25rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+
+  @include mq(lg) {
+    text-indent: 2.75em;
+  }
+}
+
+.author {
+  @include text(sm);
+  margin-top: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.counter {
+  @include caption;
+  color: var(--color-ink);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-right: -0.75rem;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-ink);
+  transition: opacity $duration;
+
+  @include hover {
+    opacity: 0.55;
+  }
+}

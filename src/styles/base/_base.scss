@@ -1,0 +1,29 @@
+@use "abstracts" as *;
+
+html {
+  background: var(--color-bg);
+  scroll-padding-top: var(--header-height);
+
+  @include motion {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  @include text;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-inverse);
+}
+
+:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}

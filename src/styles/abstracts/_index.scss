@@ -1,0 +1,4 @@
+// Ulazna tačka za tokene i mixine — ne generiše CSS.
+// Upotreba u bilo kom .scss fajlu:  @use "abstracts" as *;
+@forward "variables";
+@forward "mixins";

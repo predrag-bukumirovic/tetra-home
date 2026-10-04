@@ -1,0 +1,106 @@
+@use "abstracts" as *;
+
+.footer {
+  overflow: hidden;
+  padding-top: var(--section-space);
+}
+
+.top {
+  @include grid;
+  row-gap: 3.5rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  grid-column: 1 / -1;
+
+  @include mq(lg) {
+    grid-column: 1 / span 5;
+  }
+}
+
+.statement {
+  @include heading(md);
+  max-width: 18em;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem var(--grid-gap);
+  grid-column: 1 / -1;
+
+  @include mq(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include mq(lg) {
+    grid-column: 7 / -1;
+  }
+}
+
+.columnTitle {
+  @include label;
+  margin-bottom: 1.25rem;
+  color: var(--color-muted);
+}
+
+.list {
+  @include label;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity $duration;
+
+  @include hover {
+    opacity: 0.55;
+  }
+}
+
+// Kontejner čija širina određuje veličinu logotipa (cqi jedinice)
+.wordmarkFrame {
+  container-type: inline-size;
+  margin-top: clamp(4rem, 9vw, 9rem);
+}
+
+// Logotip preko cele širine. `--wordmark-ratio` je odnos širine teksta i veličine
+// fonta za „Tetra Home" — ako se naziv promeni, prilagoditi ga.
+.wordmark {
+  --wordmark-ratio: 5.6;
+
+  @include heading-base;
+  font-size: calc(100cqi / var(--wordmark-ratio));
+  font-weight: 300;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.bottom {
+  margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  border-top: 1px solid var(--color-line);
+}
+
+.bottomInner {
+  @include label;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.toTopIcon {
+  flex-shrink: 0;
+}

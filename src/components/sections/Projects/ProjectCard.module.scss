@@ -1,0 +1,59 @@
+@use "abstracts" as *;
+
+.card {
+  display: block;
+
+  &:focus-visible {
+    outline-offset: 6px;
+  }
+
+  @include hover {
+    .image {
+      scale: 1.04;
+    }
+
+    .icon {
+      translate: 0.15rem -0.15rem;
+    }
+  }
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--color-line);
+}
+
+.image {
+  object-fit: cover;
+  transition: scale 1.2s $ease-out;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+  padding-top: 1.25rem;
+}
+
+.index {
+  @include label;
+  padding-top: 0.2em;
+  color: var(--color-muted);
+}
+
+.title {
+  @include heading(sm);
+}
+
+.details {
+  @include caption;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  margin-top: 0.3rem;
+  transition: translate $duration $ease-out;
+}
