@@ -1,5 +1,4 @@
 import { Container } from "@/components/ui";
-import { formatIndex } from "@/lib/utils/format";
 import type { ProcessContent } from "@/types/content";
 import styles from "./Process.module.scss";
 
@@ -18,11 +17,8 @@ export function Process({ id, eyebrow, statement, steps }: ProcessContent) {
 
         <div className={styles.body}>
           <ol className={styles.steps}>
-            {steps.map((step, index) => (
+            {steps.map((step) => (
               <li key={step.title} className={styles.step}>
-                <span className={styles.number} aria-hidden="true">
-                  {formatIndex(index + 1)}
-                </span>
                 <h3 className={styles.title}>{step.title}</h3>
                 <p className={styles.label}>{step.label}</p>
                 <p className={styles.text}>{step.text}</p>

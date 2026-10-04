@@ -56,19 +56,9 @@
 
 .controls {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: clamp(2rem, 4vw, 3rem);
-}
-
-.counter {
-  @include caption;
-  color: var(--color-ink);
-}
-
-.buttons {
-  display: flex;
+  justify-content: flex-end;
   gap: 0.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
   margin-right: -0.75rem;
 }
 

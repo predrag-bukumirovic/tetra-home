@@ -1,15 +1,13 @@
 import Image from "next/image";
 import { Icon, SmartLink } from "@/components/ui";
-import { formatIndex } from "@/lib/utils/format";
 import type { Project } from "@/types/content";
 import styles from "./ProjectCard.module.scss";
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const { title, category, material, href, image } = project;
 
   return (
@@ -26,9 +24,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       <div className={styles.meta}>
-        <span className={styles.index} aria-hidden="true">
-          {formatIndex(index)}
-        </span>
         <div>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.details}>

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui";
 import { cn } from "@/lib/utils/cn";
-import { formatIndex } from "@/lib/utils/format";
 import type { Testimonial } from "@/types/content";
 import styles from "./TestimonialSlider.module.scss";
 
@@ -39,19 +38,14 @@ export function TestimonialSlider({ items, className }: TestimonialSliderProps) 
 
       {count > 1 && (
         <div className={styles.controls}>
-          <p className={styles.counter}>
-            {formatIndex(active + 1)} / {formatIndex(count)}
-          </p>
-          <div className={styles.buttons}>
-            <button type="button" className={styles.button} onClick={() => show(-1)}>
-              <span className="visually-hidden">Prethodni utisak</span>
-              <Icon name="arrow-left" size={22} />
-            </button>
-            <button type="button" className={styles.button} onClick={() => show(1)}>
-              <span className="visually-hidden">Sledeći utisak</span>
-              <Icon name="arrow-right" size={22} />
-            </button>
-          </div>
+          <button type="button" className={styles.button} onClick={() => show(-1)}>
+            <span className="visually-hidden">Prethodni utisak</span>
+            <Icon name="arrow-left" size={22} />
+          </button>
+          <button type="button" className={styles.button} onClick={() => show(1)}>
+            <span className="visually-hidden">Sledeći utisak</span>
+            <Icon name="arrow-right" size={22} />
+          </button>
         </div>
       )}
     </div>

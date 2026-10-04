@@ -1,7 +1,6 @@
 import { ArrowLink } from "@/components/ui";
 import { siteConfig } from "@/content/site";
 import { cn } from "@/lib/utils/cn";
-import { formatIndex } from "@/lib/utils/format";
 import styles from "./MobileMenu.module.scss";
 
 interface MobileMenuProps {
@@ -16,10 +15,9 @@ export function MobileMenu({ id, open, onNavigate }: MobileMenuProps) {
     <div id={id} className={cn(styles.menu, open && styles.open)} inert={!open}>
       <nav aria-label="Mobilna navigacija">
         <ul className={styles.list}>
-          {siteConfig.nav.map((item, index) => (
+          {siteConfig.nav.map((item) => (
             <li key={item.href}>
               <a href={item.href} className={styles.link} onClick={onNavigate}>
-                <span className={styles.index}>{formatIndex(index + 1)}</span>
                 {item.label}
               </a>
             </li>

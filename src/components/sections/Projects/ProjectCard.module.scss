@@ -32,16 +32,10 @@
 
 .meta {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
   gap: 1rem;
   padding-top: 1.25rem;
-}
-
-.index {
-  @include label;
-  padding-top: 0.2em;
-  color: var(--color-muted);
 }
 
 .title {

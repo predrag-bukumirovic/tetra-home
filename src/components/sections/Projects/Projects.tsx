@@ -14,9 +14,9 @@ export function Projects({ id, title, intro, link, items }: ProjectsContent) {
         </SectionIntro>
 
         <ul className={styles.grid}>
-          {items.map((project, index) => (
+          {items.map((project) => (
             <li key={project.href} className={styles.item}>
-              <ProjectCard project={project} index={index + 1} />
+              <ProjectCard project={project} />
             </li>
           ))}
         </ul>
