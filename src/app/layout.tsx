@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Footer, Header } from "@/components/layout";
+import { Footer, Header, ScrollReset } from "@/components/layout";
 import { siteConfig } from "@/content/site";
 import { bodyFont, headingFont } from "@/lib/fonts";
 import "@/styles/globals.scss";
@@ -40,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="sr-Latn" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <body>
+        <ScrollReset />
         <a href="#sadrzaj" className="skip-link">
           Preskoči na sadržaj
         </a>

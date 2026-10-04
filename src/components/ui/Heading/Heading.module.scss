@@ -27,13 +27,4 @@
 
 .line {
   display: block;
-
-  // Uvlačenje narednih redova — vrednost dolazi iz `indent` prop-a
-  & + & {
-    padding-left: calc(var(--indent, 0em) * 0.5);
-
-    @include mq(md) {
-      padding-left: var(--indent, 0em);
-    }
-  }
 }

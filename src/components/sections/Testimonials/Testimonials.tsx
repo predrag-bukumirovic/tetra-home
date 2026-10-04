@@ -9,7 +9,7 @@ export function Testimonials({ id, title, intro, items }: TestimonialsContent) {
   return (
     <section id={id} className={styles.section} aria-labelledby={titleId}>
       <Container>
-        <SectionIntro title={title} indent={3.8} text={intro} titleId={titleId} />
+        <SectionIntro title={title} text={intro} titleId={titleId} />
 
         <div className={styles.body}>
           <TestimonialSlider items={items} className={styles.slider} />

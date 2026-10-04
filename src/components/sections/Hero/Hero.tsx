@@ -12,7 +12,7 @@ export function Hero({ badge, eyebrow, title, lead, scroll, image }: HeroContent
 
         <div className={styles.content}>
           <p className={styles.eyebrow}>{eyebrow}</p>
-          <Heading as="h1" size="display" lines={title} indent={2.15} className={styles.title} />
+          <Heading as="h1" size="display" lines={title} className={styles.title} />
           <p className={styles.lead}>{lead}</p>
         </div>
 

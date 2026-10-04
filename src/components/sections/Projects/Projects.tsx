@@ -9,7 +9,7 @@ export function Projects({ id, title, intro, link, items }: ProjectsContent) {
   return (
     <section id={id} className={styles.section} aria-labelledby={titleId}>
       <Container>
-        <SectionIntro title={title} indent={1.6} text={intro} titleId={titleId}>
+        <SectionIntro title={title} text={intro} titleId={titleId}>
           <ArrowLink href={link.href}>{link.label}</ArrowLink>
         </SectionIntro>
 

@@ -8,7 +8,7 @@ export function Benefits({ id, title, intro, link, items }: BenefitsContent) {
   return (
     <section id={id} className={styles.section} aria-labelledby={titleId}>
       <Container>
-        <SectionIntro title={title} indent={2.65} text={intro} titleId={titleId} stacked />
+        <SectionIntro title={title} text={intro} titleId={titleId} stacked />
 
         <div className={styles.body}>
           <ArrowLink href={link.href} className={styles.link}>

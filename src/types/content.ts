@@ -39,7 +39,7 @@ export interface SiteConfig {
 // Sekcije početne strane
 // ---------------------------------------------------------------------------
 
-/** Naslov u više redova; svaki naredni red se uvlači (kao u dizajnu). */
+/** Naslov u više redova (prelom redova je deo dizajna). */
 export type HeadingLines = string[];
 
 export interface HeroContent {
